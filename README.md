@@ -1,6 +1,6 @@
-# my_app_flutter
+# Ruby - Notepad
 
-A new Flutter project.
+A mobile notepad created using Flutter.
 
 ## Getting Started
 
