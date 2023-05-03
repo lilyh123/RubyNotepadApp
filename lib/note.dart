@@ -33,11 +33,18 @@ class Note {
   bool locked;
   @HiveField(4)
   String password;
+  @HiveField(5)
+  DateTime savedDate;
+  @HiveField(6)
+  DateTime deleteDate;
 
   Note(
-      {this.title = "Note",
-        this.content = "Text",
-        this.date = "Date",
+      {this.title = "",
+        this.content = "",
+        this.date = "",
         this.locked = false,
-        this.password = "Password"});
+        this.password = "",
+        DateTime? savedDate,
+        DateTime? deleteDate,}) : savedDate = savedDate ?? DateTime.now(),
+        deleteDate = deleteDate ?? DateTime.now();
 }

@@ -13,7 +13,8 @@ class NewNoteScreen extends StatefulWidget {
 
 class _NewNoteScreenState extends State<NewNoteScreen> {
   // var date = DateFormat("E, d MMM yyyy HH:mm").format(DateTime.now());
-  var date = DateFormat("yyyy/MM/dd (EEEE) HH:mm").format(DateTime.now());
+  // var date = DateFormat("yyyy/MM/dd (EEEE) HH:mm").format(DateTime.now());
+  var date = DateTime.now();
   bool lockedState = false;
 
   late final Box box;
@@ -32,7 +33,7 @@ class _NewNoteScreenState extends State<NewNoteScreen> {
     Note newNote = Note(
       title: titleController.text,
       content: contentController.text,
-      date: date,
+      savedDate: date,
       locked: lockedState,
       password: passwordController.text,
     );
@@ -71,7 +72,7 @@ class _NewNoteScreenState extends State<NewNoteScreen> {
                 margin: const EdgeInsets.only(top: 10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [Text(date.toString())],
+                  children: [Text(DateFormat("yyyy/MM/dd (EEEE) HH:mm").format(date))],
                 ),
               ),
               Padding(

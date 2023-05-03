@@ -19,7 +19,8 @@ class _NoteContentScreenState extends State<NoteContentScreen> {
   late int idx;
 
   // var date = DateFormat("E, d MMM yyyy HH:mm").format(DateTime.now());
-  var date = DateFormat("yyyy/MM/dd (EEEE) HH:mm").format(DateTime.now());
+  // var date = DateFormat("yyyy/MM/dd (EEEE) HH:mm").format(DateTime.now());
+  var date = DateTime.now();
   late bool lockedState;
 
   late final Box box;
@@ -38,7 +39,7 @@ class _NoteContentScreenState extends State<NoteContentScreen> {
     Note newNote = Note(
       title: titleController.text,
       content: contentController.text,
-      date: date,
+      savedDate: date,
       locked: lockedState,
       password: passwordController.text,
     );
@@ -86,6 +87,7 @@ class _NoteContentScreenState extends State<NoteContentScreen> {
             TextButton(
                 onPressed: () {
                   _promptPassword();
+
                 },
                 child: Text("LOCK")),
           ]
@@ -100,7 +102,7 @@ class _NoteContentScreenState extends State<NoteContentScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(noteInfo.date.toString()),
+                    Text(DateFormat("yyyy/MM/dd (EEEE) HH:mm").format(noteInfo.savedDate)),
                     // Text(noteDateList[idx].toString())
                   ],
                 ),
@@ -152,7 +154,8 @@ class _NoteContentScreenState extends State<NoteContentScreen> {
                         passwordController.clear();
                       });
 
-                      Navigator.of(context).pop();
+                      // Navigator.of(context).pop();
+                      Navigator.pop(context);
                       Navigator.pop(context);
                     }),
                 TextButton(
@@ -166,7 +169,8 @@ class _NoteContentScreenState extends State<NoteContentScreen> {
                           _updateInfo();
                         });
                       }
-                      Navigator.of(context).pop();
+                      // Navigator.of(context).pop();
+                      Navigator.pop(context);
                       Navigator.pop(context);
                     })
               ]);

@@ -22,13 +22,15 @@ class NoteAdapter extends TypeAdapter<Note> {
       date: fields[2] as String,
       locked: fields[3] as bool,
       password: fields[4] as String,
+      savedDate: fields[5] as DateTime?,
+      deleteDate: fields[6] as DateTime?,
     );
   }
 
   @override
   void write(BinaryWriter writer, Note obj) {
     writer
-      ..writeByte(5)
+      ..writeByte(7)
       ..writeByte(0)
       ..write(obj.title)
       ..writeByte(1)
@@ -38,7 +40,11 @@ class NoteAdapter extends TypeAdapter<Note> {
       ..writeByte(3)
       ..write(obj.locked)
       ..writeByte(4)
-      ..write(obj.password);
+      ..write(obj.password)
+      ..writeByte(5)
+      ..write(obj.savedDate)
+      ..writeByte(6)
+      ..write(obj.deleteDate);
   }
 
   @override
