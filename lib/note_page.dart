@@ -2,6 +2,7 @@ import 'package:another_flushbar/flushbar.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:intl/intl.dart';
 import 'new_note_page.dart';
 import 'note.dart';
 import 'note_content.dart';
@@ -43,6 +44,16 @@ class _NoteScreenState extends State<NoteScreen> {
     box.add(n);
     print('Info added to box!');
   }
+
+  // _checkDeletion() {
+  //   DateTime curr = DateTime.now();
+  //   for (int i = 0; i < box.length; i++) {
+  //     print(curr.difference(box.getAt(i).date.minute).inMinutes.toString());
+  //     if (curr.difference(box.getAt(i).date.minute).inMinutes >= 1) {
+  //       _deleteInfo(i);
+  //     }
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
