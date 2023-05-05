@@ -3,7 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
-
+import 'package:pdf/pdf.dart';
+import 'dart:io';
+import 'package:pdf/widgets.dart' as pw;
+import 'package:path_provider/path_provider.dart';
+import 'package:printing/printing.dart';
 import 'note.dart';
 
 class NoteContentScreen extends StatefulWidget {
@@ -74,6 +78,27 @@ class _NoteContentScreenState extends State<NoteContentScreen> {
           icon: const Icon(Icons.arrow_back_ios),
         ),
         actions: [
+          // IconButton(
+          //     onPressed: () async {
+          //       final font = await PdfGoogleFonts.nunitoExtraLight();
+          //       final pdf = pw.Document();
+          //       pdf.addPage(pw.Page(
+          //           pageFormat: PdfPageFormat.legal,
+          //           build: (pw.Context context) {
+          //             return pw.Center(
+          //               child: pw.Text(noteInfo.title + "\n" + noteInfo.content,
+          //                   style: pw.TextStyle(font: font)),
+          //             );
+          //           }
+          //       ));
+          //       String filename = "${DateFormat("yyyy-MM-dd").format(date)}.pdf";
+          //       final output = await getTemporaryDirectory();
+          //       print("the path is: " + output.path);
+          //       final file = File("${output.path}/$filename.pdf");
+          //       pdf.save();
+          //       await file.writeAsBytes(await pdf.save());
+          //     }, icon: const Icon(Icons.ios_share)
+          // ),
           if (noteInfo.locked == true) ...[
             TextButton(
                 onPressed: () {

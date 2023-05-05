@@ -52,6 +52,9 @@ dependencies:
   hive_flutter: ^1.1.0
   auto_size_text: ^3.0.0
   another_flushbar: ^1.12.29
+  pdf: ^3.10.1
+  path_provider: ^2.0.14
+  printing: ^5.10.3
 
 dev_dependencies:
   flutter_test:
